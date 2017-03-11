@@ -1,4 +1,4 @@
-package application.core.parser;
+package application.core.service;
 
 import application.core.dto.ProcessedTranslationRequest;
 import com.google.common.collect.Lists;
@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class TranslationRequestProcessorTest {
+public class RequestMappingServiceTest {
 
-	TranslationRequestProcessor parser = new TranslationRequestProcessor();
+	RequestMappingService parser = new RequestMappingService();
 
 	@Test
 	public void parsesLineWithRomanNumeralOneAsAMapping() {
@@ -67,8 +67,11 @@ public class TranslationRequestProcessorTest {
 	}
 
 	@Test
-	public void parsesFacts() throws Exception {
+	public void parsesRowsWithQuestionMarkInTheEndAsQuestions() throws Exception {
+		List<String> mappings = Lists.newArrayList("how many Credits is glob prok Silver ?");
 
+		ProcessedTranslationRequest translationRequest = parser.process(mappings);
 
+		assertThat(translationRequest.getQuestions().size()).isEqualTo(1);
 	}
 }

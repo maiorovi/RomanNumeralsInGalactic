@@ -17,4 +17,13 @@ public enum RomanNumeral {
 		this.romanNumeral = romanNumeral;
 		this.decimalDigit = decimalDigit;
 	}
+
+	public static int convertToDecimal(String romanNumber) {
+		return 0;
+	}
+
+	public static String convertToNumeral(String numberal) {
+		return "";
+	}
+
 }
