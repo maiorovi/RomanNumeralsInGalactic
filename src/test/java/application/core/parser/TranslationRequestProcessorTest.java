@@ -19,7 +19,6 @@ public class TranslationRequestProcessorTest {
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
 		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
-//		assertThat(translationRequestProcessor.getMappings())
 	}
 
 	@Test
