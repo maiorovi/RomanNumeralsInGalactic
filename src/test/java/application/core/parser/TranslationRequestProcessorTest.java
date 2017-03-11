@@ -65,4 +65,10 @@ public class TranslationRequestProcessorTest {
 
 		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(0);
 	}
+
+	@Test
+	public void parsesFacts() throws Exception {
+
+
+	}
 }
