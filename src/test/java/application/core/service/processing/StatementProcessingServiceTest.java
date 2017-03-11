@@ -1,20 +1,49 @@
 package application.core.service.processing;
 
+import application.core.domain.Fact;
+import application.core.domain.Statement;
+import application.core.service.GalacticCurrencyConverter;
+import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 public class StatementProcessingServiceTest {
 
-	StatementProcessingService processingService;
+	private StatementProcessingService processingService;
+	private Statement statement;
+	private GalacticCurrencyConverter galacticCurrencyConverter;
 
 	@Before
 	public void setUp() throws Exception {
-		processingService = new StatementProcessingService();
+		statement = mock(Statement.class);
+		galacticCurrencyConverter = mock(GalacticCurrencyConverter.class);
+		processingService = new StatementProcessingService(galacticCurrencyConverter);
 	}
 
 	@Test
 	public void processAStatement() throws Exception {
-		String statement = "pish pish Iron is 3910 Credits";
+		when(statement.getAmountInGalacticalNumbers()).thenReturn(Lists.newArrayList("pish", "pish"));
+		when(statement.getEntity()).thenReturn("Iron");
+		when(statement.getPrice()).thenReturn(3910d);
+				when(galacticCurrencyConverter.toRomanNumeral(any(List.class))).thenReturn("XX");
 
+		List<Fact> facts = processingService.statementsProcessingService(Lists.newArrayList(statement));
+
+		assertThat(facts.size()).isEqualTo(1);
+		assertThat(facts)
+				.extracting("entityName")
+				.containsExactly("Iron");
+		assertThat(facts)
+				.extracting("decimalPrice")
+				.containsExactly(195.5);
 	}
+
+
 }

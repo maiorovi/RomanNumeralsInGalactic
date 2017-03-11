@@ -31,7 +31,7 @@ public class RequestMappingService {
 			} else if (isQuestion(line)) {
 				questions.add(new Question());
 			} else {
-				statements.add(new Statement());
+				statements.add(new Statement(line));
 			}
 		}
 

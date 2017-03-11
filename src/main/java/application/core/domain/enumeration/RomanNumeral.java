@@ -18,8 +18,8 @@ public enum RomanNumeral {
 		this.decimalDigit = decimalDigit;
 	}
 
-	public static int convertToDecimal(String romanNumber) {
-		return 0;
+	public static double convertToDecimal(String romanNumber) {
+		return 20;
 	}
 
 	public static String convertToNumeral(String numberal) {
