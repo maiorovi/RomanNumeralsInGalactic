@@ -29,7 +29,7 @@ public class RequestMappingService {
 
 				mapping.add(galaxyNumeral, romanNumeral);
 			} else if (isQuestion(line)) {
-				questions.add(new Question());
+				questions.add(new Question(line));
 			} else {
 				statements.add(new Statement(line));
 			}
