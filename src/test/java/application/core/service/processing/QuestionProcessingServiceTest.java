@@ -52,7 +52,7 @@ public class QuestionProcessingServiceTest {
 		List<String> answers  = questionProcessingService.processQuestions(questions);
 
 		assertThat(answers.size()).isEqualTo(1);
-		assertThat(answers.get(0)).isEqualTo("glob prok Silver is 68 Credits");
+		assertThat(answers).containsExactly("glob prok Silver is 68 Credits");
 	}
 
 
