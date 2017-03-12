@@ -18,7 +18,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(1);
 	}
 
 	@Test
@@ -27,7 +27,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(1);
 	}
 
 	@Test
@@ -36,7 +36,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(1);
 	}
 
 	@Test
@@ -45,7 +45,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(1);
 	}
 
 	@Test
@@ -54,7 +54,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(1);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(1);
 	}
 
 	@Test
@@ -63,7 +63,7 @@ public class RequestMappingServiceTest {
 
 		ProcessedTranslationRequest translationRequestProcessor = parser.process(mappings);
 
-		assertThat(translationRequestProcessor.getMappings().size()).isEqualTo(0);
+		assertThat(translationRequestProcessor.getMapping().size()).isEqualTo(0);
 	}
 
 	@Test

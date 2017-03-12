@@ -22,7 +22,7 @@ public class Question {
 		return Optional.of(questionParts[questionParts.length - 2].toLowerCase());
 	}
 
-	public List<String> getGalaxyNumbers() {
+	public List<String> getRequestedAmount() {
 		return IntStream.range(isPosition + 1, questionParts.length - 2).mapToObj( index -> questionParts[index]).collect(Collectors.toList());
 	}
 }

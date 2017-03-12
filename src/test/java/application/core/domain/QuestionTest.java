@@ -24,7 +24,7 @@ public class QuestionTest {
 
 	@Test
 	public void identifiesGalaxyNumberInQuestion() throws Exception {
-		List<String> numbers = question.getGalaxyNumbers();
+		List<String> numbers = question.getRequestedAmount();
 
 		assertThat(numbers).containsExactly("glob", "prok");
 	}

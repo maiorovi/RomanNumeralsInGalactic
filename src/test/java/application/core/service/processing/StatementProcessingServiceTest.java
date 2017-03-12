@@ -2,7 +2,7 @@ package application.core.service.processing;
 
 import application.core.domain.Fact;
 import application.core.domain.Statement;
-import application.core.service.GalacticCurrencyConverter;
+import application.core.service.conversion.GalacticRomanNumeralConverter;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,13 +18,13 @@ public class StatementProcessingServiceTest {
 
 	private StatementProcessingService processingService;
 	private Statement statement;
-	private GalacticCurrencyConverter galacticCurrencyConverter;
+	private GalacticRomanNumeralConverter galacticRomanNumeralConverter;
 
 	@Before
 	public void setUp() throws Exception {
 		statement = mock(Statement.class);
-		galacticCurrencyConverter = mock(GalacticCurrencyConverter.class);
-		processingService = new StatementProcessingService(galacticCurrencyConverter);
+		galacticRomanNumeralConverter = mock(GalacticRomanNumeralConverter.class);
+		processingService = new StatementProcessingService(galacticRomanNumeralConverter);
 	}
 
 	@Test
@@ -32,7 +32,7 @@ public class StatementProcessingServiceTest {
 		when(statement.getAmountInGalacticalNumbers()).thenReturn(Lists.newArrayList("pish", "pish"));
 		when(statement.getEntity()).thenReturn("Iron");
 		when(statement.getPrice()).thenReturn(3910d);
-				when(galacticCurrencyConverter.toRomanNumeral(any(List.class))).thenReturn("XX");
+				when(galacticRomanNumeralConverter.toRomanNumeral(any(List.class))).thenReturn("XX");
 
 		List<Fact> facts = processingService.statementsProcessingService(Lists.newArrayList(statement));
 

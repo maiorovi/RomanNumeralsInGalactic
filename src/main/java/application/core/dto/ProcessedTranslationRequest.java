@@ -11,7 +11,7 @@ public class ProcessedTranslationRequest {
 	private Mapping mapping;
 	private List<Statement> statements;
 
-	public Mapping getMappings() {
+	public Mapping getMapping() {
 		return mapping;
 	}
 
