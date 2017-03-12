@@ -1,6 +1,5 @@
 package application.core.service.processing;
 
-import application.core.domain.Answer;
 import application.core.domain.Fact;
 import application.core.domain.Question;
 import application.core.service.conversion.GalacticRomanNumeralConverter;
