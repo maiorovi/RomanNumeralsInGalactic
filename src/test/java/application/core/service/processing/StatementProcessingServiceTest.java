@@ -3,6 +3,7 @@ package application.core.service.processing;
 import application.core.domain.Fact;
 import application.core.domain.Statement;
 import application.core.service.conversion.GalacticRomanNumeralConverter;
+import application.core.service.conversion.RomanDecimalNumeralsConverter;
 import com.google.common.collect.Lists;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,12 +20,14 @@ public class StatementProcessingServiceTest {
 	private StatementProcessingService processingService;
 	private Statement statement;
 	private GalacticRomanNumeralConverter galacticRomanNumeralConverter;
+	private RomanDecimalNumeralsConverter romanDecimalNumeralsConverter;
 
 	@Before
 	public void setUp() throws Exception {
 		statement = mock(Statement.class);
 		galacticRomanNumeralConverter = mock(GalacticRomanNumeralConverter.class);
-		processingService = new StatementProcessingService(galacticRomanNumeralConverter);
+		romanDecimalNumeralsConverter = mock(RomanDecimalNumeralsConverter.class);
+		processingService = new StatementProcessingService(galacticRomanNumeralConverter, romanDecimalNumeralsConverter);
 	}
 
 	@Test
@@ -32,7 +35,8 @@ public class StatementProcessingServiceTest {
 		when(statement.getAmountInGalacticalNumbers()).thenReturn(Lists.newArrayList("pish", "pish"));
 		when(statement.getEntity()).thenReturn("Iron");
 		when(statement.getPrice()).thenReturn(3910d);
-				when(galacticRomanNumeralConverter.toRomanNumeral(any(List.class))).thenReturn("XX");
+		when(galacticRomanNumeralConverter.toRomanNumeral(any(List.class))).thenReturn("XX");
+		when(romanDecimalNumeralsConverter.toDecimal("XX")).thenReturn(20d);
 
 		List<Fact> facts = processingService.statementsProcessingService(Lists.newArrayList(statement));
 

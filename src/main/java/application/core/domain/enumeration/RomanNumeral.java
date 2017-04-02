@@ -1,5 +1,7 @@
 package application.core.domain.enumeration;
 
+import java.util.Arrays;
+
 public enum RomanNumeral {
 	I("I", 1),
 	V("V", 5),
@@ -27,7 +29,8 @@ public enum RomanNumeral {
 	}
 
 	public static double convertToDecimal(String romanNumber) {
-		return 20;
+		return Arrays.stream(values()).filter(numeral -> numeral.getRomanNumeral().equals(romanNumber)).findFirst()
+				.map(p -> p.getDecimalDigit()).get();
 	}
 
 	public static String convertToNumeral(String numberal) {
