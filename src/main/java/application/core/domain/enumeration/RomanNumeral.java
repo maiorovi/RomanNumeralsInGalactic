@@ -18,6 +18,14 @@ public enum RomanNumeral {
 		this.decimalDigit = decimalDigit;
 	}
 
+	public String getRomanNumeral() {
+		return romanNumeral;
+	}
+
+	public Integer getDecimalDigit() {
+		return decimalDigit;
+	}
+
 	public static double convertToDecimal(String romanNumber) {
 		return 20;
 	}

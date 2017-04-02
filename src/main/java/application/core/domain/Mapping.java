@@ -7,24 +7,24 @@ import java.util.Map;
 
 public class Mapping {
 
-	private Map<GalaxyNumeral, RomanNumeral> galaxyToRomanNumerals;
-	private Map<RomanNumeral, GalaxyNumeral> romanToGalaxyNumerals;
+	private Map<String, RomanNumeral> galaxyToRomanNumerals;
+	private Map<RomanNumeral, String> romanToGalaxyNumerals;
 
 	public Mapping() {
 		galaxyToRomanNumerals = new HashMap<>();
 		romanToGalaxyNumerals = new HashMap<>();
 	}
 
-	public void add(GalaxyNumeral galaxyNumeral, RomanNumeral romanNumeral) {
+	public void add(String galaxyNumeral, RomanNumeral romanNumeral) {
 		galaxyToRomanNumerals.put(galaxyNumeral, romanNumeral);
 		romanToGalaxyNumerals.put(romanNumeral, galaxyNumeral);
 	}
 
-	public RomanNumeral convertToRomanNumeralFrom(GalaxyNumeral galaxyNumeral) {
+	public RomanNumeral convertToRomanNumeralFrom(String galaxyNumeral) {
 		return galaxyToRomanNumerals.get(galaxyNumeral);
 	}
 
-	public GalaxyNumeral convertToGalaxyNumeralFrom(RomanNumeral romanNumeral) {
+	public String convertToGalaxyNumeralFrom(RomanNumeral romanNumeral) {
 		return romanToGalaxyNumerals.get(romanNumeral);
 	}
 

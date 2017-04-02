@@ -24,7 +24,7 @@ public class RequestMappingService {
 		for (String line : lines) {
 			if (isMapping(line)) {
 				String parts[] = line.split("\\s");
-				GalaxyNumeral galaxyNumeral = new GalaxyNumeral(parts[0]);
+				String galaxyNumeral = parts[0];
 				RomanNumeral romanNumeral = RomanNumeral.valueOf(parts[2]);
 
 				mapping.add(galaxyNumeral, romanNumeral);
