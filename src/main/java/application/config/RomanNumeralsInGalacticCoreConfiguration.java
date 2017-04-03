@@ -31,8 +31,7 @@ public class RomanNumeralsInGalacticCoreConfiguration {
 	                                                           RomanDecimalNumeralsConverter romanDecimalNumeralsConverter) {
 		//todo what is entity to fact mapping
 		return new QuestionProcessingService(galacticRomanNumeralConverter,
-												romanDecimalNumeralsConverter,
-												null);
+												romanDecimalNumeralsConverter);
 	}
 
 	@Bean

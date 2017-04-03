@@ -8,6 +8,8 @@ import application.core.service.processing.QuestionProcessingService;
 import application.core.service.processing.StatementProcessingService;
 
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class ConvertionEngineFacade {
 	private RequestMappingService requestMappingService;
@@ -22,10 +24,11 @@ public class ConvertionEngineFacade {
 
 	public List<String> process(List<String> lines) {
 		ProcessedTranslationRequest  processedTranslationRequest = requestMappingService.process(lines);
-		GalacticRomanNumeralConverter galacticRomanNumeralConverter = new GalacticRomanNumeralConverter(processedTranslationRequest.getMapping());
+//		GalacticRomanNumeralConverter galacticRomanNumeralConverter = new GalacticRomanNumeralConverter(processedTranslationRequest.getMapping());
 		//need to inject fact to question processing service
 		List<Fact> facts = statementProcessingService.statementsProcessingService(processedTranslationRequest.getStatements());
 
-		return questionProcessingService.processQuestions(processedTranslationRequest.getQuestions());
+		return questionProcessingService.processQuestions(processedTranslationRequest.getQuestions(),
+				facts.stream().collect(Collectors.toMap(Fact::getEntityName, Function.identity())));
 	}
 }

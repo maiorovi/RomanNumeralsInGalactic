@@ -13,15 +13,13 @@ import java.util.Map;
 public class QuestionProcessingService {
 	private GalacticRomanNumeralConverter galacticRomanNumeralConverter;
 	private RomanDecimalNumeralsConverter romanDecimalNumeralsConverter;
-	private Map<String, Fact> entityToFactMapping;
 
-	public QuestionProcessingService(GalacticRomanNumeralConverter galacticRomanNumeralConverter, RomanDecimalNumeralsConverter romanDecimalNumeralsConverter, Map<String, Fact> entityToFactMapping) {
+	public QuestionProcessingService(GalacticRomanNumeralConverter galacticRomanNumeralConverter, RomanDecimalNumeralsConverter romanDecimalNumeralsConverter) {
 		this.galacticRomanNumeralConverter = galacticRomanNumeralConverter;
 		this.romanDecimalNumeralsConverter = romanDecimalNumeralsConverter;
-		this.entityToFactMapping = entityToFactMapping;
 	}
 
-	public List<String> processQuestions(List<Question> questions) {
+	public List<String> processQuestions(List<Question> questions, Map<String, Fact> entityToFactMapping) {
 		List<String> answers = new ArrayList<>();
 
 		for (Question question : questions) {
