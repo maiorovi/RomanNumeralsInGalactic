@@ -33,6 +33,18 @@ public enum RomanNumeral {
 				.map(p -> p.getDecimalDigit()).get();
 	}
 
+	public static double convertToDecimal(Character ch) {
+		return convertToDecimal(ch.toString());
+	}
+
+	public static boolean isGreater(RomanNumeral fst, RomanNumeral snd) {
+		return fst.getDecimalDigit() > snd.getDecimalDigit();
+	}
+
+	public double minus(RomanNumeral roman1) {
+		return this.getDecimalDigit() - roman1.getDecimalDigit();
+	}
+
 	public static String convertToNumeral(String numberal) {
 		return "";
 	}
