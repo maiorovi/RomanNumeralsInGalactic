@@ -31,7 +31,7 @@ public class QuestionProcessingServiceTest {
 		romanDecimalNumeralsConverter = mock(RomanDecimalNumeralsConverter.class);
 		entityToFactMapping = mock(Map.class);
 
-		questionProcessingService = new QuestionProcessingService(galacticRomanNumeralConverter, romanDecimalNumeralsConverter, entityToFactMapping);
+		questionProcessingService = new QuestionProcessingService(galacticRomanNumeralConverter, romanDecimalNumeralsConverter);
 		question = mock(Question.class);
 
 		//TODO: use mock of list
@@ -49,7 +49,7 @@ public class QuestionProcessingServiceTest {
 		when(romanDecimalNumeralsConverter.toDecimal("IV")).thenReturn(4.0);
 		when(entityToFactMapping.get("Silver")).thenReturn(new Fact("Silver", 17));
 
-		List<String> answers  = questionProcessingService.processQuestions(questions);
+		List<String> answers  = questionProcessingService.processQuestions(questions, entityToFactMapping);
 
 		assertThat(answers.size()).isEqualTo(1);
 		assertThat(answers).containsExactly("glob prok Silver is 68 Credits");

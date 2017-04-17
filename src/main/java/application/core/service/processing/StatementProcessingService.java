@@ -28,4 +28,8 @@ public class StatementProcessingService {
 		}).collect(Collectors.toList());
 
 	}
+
+	public void setGalacticRomanNumeralConverter(GalacticRomanNumeralConverter galacticRomanNumeralConverter) {
+		this.galacticRomanNumeralConverter = galacticRomanNumeralConverter;
+	}
 }

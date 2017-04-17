@@ -24,7 +24,9 @@ public class ConvertionEngineFacade {
 
 	public List<String> process(List<String> lines) {
 		ProcessedTranslationRequest  processedTranslationRequest = requestMappingService.process(lines);
-//		GalacticRomanNumeralConverter galacticRomanNumeralConverter = new GalacticRomanNumeralConverter(processedTranslationRequest.getMapping());
+		GalacticRomanNumeralConverter galacticRomanNumeralConverter = new GalacticRomanNumeralConverter(processedTranslationRequest.getMapping());
+		questionProcessingService.setGalacticRomanNumeralConverter(galacticRomanNumeralConverter);
+		statementProcessingService.setGalacticRomanNumeralConverter(galacticRomanNumeralConverter);
 		//need to inject fact to question processing service
 		List<Fact> facts = statementProcessingService.statementsProcessingService(processedTranslationRequest.getStatements());
 

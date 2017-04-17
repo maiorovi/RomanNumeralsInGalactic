@@ -36,4 +36,12 @@ public class QuestionProcessingService {
 
 		return answers;
 	}
+
+	public void setGalacticRomanNumeralConverter(GalacticRomanNumeralConverter galacticRomanNumeralConverter) {
+		this.galacticRomanNumeralConverter = galacticRomanNumeralConverter;
+	}
+
+	public void setRomanDecimalNumeralsConverter(RomanDecimalNumeralsConverter romanDecimalNumeralsConverter) {
+		this.romanDecimalNumeralsConverter = romanDecimalNumeralsConverter;
+	}
 }

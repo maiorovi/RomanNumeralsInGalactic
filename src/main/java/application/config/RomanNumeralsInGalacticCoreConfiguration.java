@@ -1,5 +1,7 @@
 package application.config;
 
+import application.core.domain.Mapping;
+import application.core.readers.FileDataReader;
 import application.core.service.ConvertionEngineFacade;
 import application.core.service.RequestMappingService;
 import application.core.service.conversion.GalacticRomanNumeralConverter;
@@ -19,6 +21,11 @@ public class RomanNumeralsInGalacticCoreConfiguration {
 	                                                     ) {
 
 		return new ConvertionEngineFacade(requestMappingService, questionProcessingService, statementProcessingService);
+	}
+
+	@Bean
+	public FileDataReader fileDataReader() {
+		return new FileDataReader();
 	}
 
 	@Bean
