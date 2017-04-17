@@ -28,6 +28,7 @@ public class QuestionProcessingService {
 
 			String romanNumeral = galacticRomanNumeralConverter.toRomanNumeral(requestedAmount);
 			double decimalAmount = romanDecimalNumeralsConverter.toDecimal(romanNumeral);
+			// when entity not inside mapping try to consider question just conversional
 			double price = entityToFactMapping.get(entity).getDecimalPrice() * decimalAmount;
 
 			String answer = requestedAmount.stream().reduce("", (acc, x) -> acc + x +  " ") +  entity + " is "  + (int) price + " Credits";

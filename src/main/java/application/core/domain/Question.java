@@ -18,6 +18,7 @@ public class Question {
 		isPosition = IntStream.range(0, questionParts.length).filter(index -> questionParts[index].toLowerCase().equals("is")).findFirst().getAsInt();
 	}
 
+	//todo: entity not always present in question. e.g. conversion questions
 	public Optional<String> getEntity() {
 		return Optional.of(questionParts[questionParts.length - 2].toLowerCase());
 	}
